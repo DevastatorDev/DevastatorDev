@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Updated to latest version
 
       - name: Generate Snake Animation
         uses: Platane/snk@v3
         with:
           github_user_name: DevastatorDev
           outputs: dist/snake.svg
-          
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+
+      - name: Upload Artifact (Latest Version)
+        uses: actions/upload-artifact@v4  # Fixed: Updated to v4
         with:
           name: snake-animation
           path: dist/snake.svg
@@ -29,6 +29,6 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
           git add dist/snake.svg
-          git commit -m "Generated Snake Animation"
+          git commit -m "Updated Snake Animation"
           git push
         continue-on-error: true
